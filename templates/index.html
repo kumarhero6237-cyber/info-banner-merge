@@ -1,1 +1,89 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#030506">
+<title>RAVEN // CYBER NODE</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}:root{color-scheme:dark;--bg:#020405;--panel:#070b0c;--panel2:#0a1011;--line:#173437;--cyan:#00f5d4;--green:#49ff88;--violet:#9d5cff;--red:#ff315a;--text:#eafff9;--muted:#78918f}
+body{margin:0;min-height:100vh;background:#020405;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(0,245,212,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,212,.025) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.012) 4px);mix-blend-mode:screen;opacity:.35}
+.noise,.scan{position:fixed;inset:0;pointer-events:none}.scan{background:linear-gradient(180deg,transparent 0%,rgba(0,245,212,.04) 50%,transparent 100%);height:35%;animation:scan 7s linear infinite}@keyframes scan{from{transform:translateY(-120%)}to{transform:translateY(330%)}}
+.page{width:min(1040px,100%);margin:auto;padding:16px 12px 55px;position:relative;z-index:2}.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 3px 18px}.brand{display:flex;align-items:center;gap:9px;font:900 12px/1 ui-monospace,monospace;letter-spacing:.16em;color:var(--cyan)}.brand-dot{width:9px;height:9px;border-radius:2px;background:var(--cyan);box-shadow:0 0 18px var(--cyan);animation:blink 1.2s infinite}@keyframes blink{50%{opacity:.35}}
+.system{font:700 9px ui-monospace,monospace;color:#57706e;border:1px solid #173235;background:#061012;padding:6px 8px;border-radius:5px}.system b{color:var(--green)}
+.hero{border:1px solid #173437;background:linear-gradient(135deg,#061011dd,#040708ee 60%,#0a0710dd);padding:25px 20px 21px;border-radius:7px;box-shadow:0 0 0 1px #001819,0 25px 80px #000,0 0 50px #00f5d40b;position:relative;overflow:hidden;animation:rise .6s ease both}.hero:before{content:"";position:absolute;left:0;top:0;width:110px;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);box-shadow:0 0 16px var(--cyan)}.hero:after{content:"01 / RAVEN MAIN NODE";position:absolute;right:15px;top:12px;color:#345452;font:700 8px ui-monospace,monospace;letter-spacing:.15em}.eyebrow{font:900 10px ui-monospace,monospace;letter-spacing:.2em;color:#54a9a0}.hero h1{margin:9px 0 9px;font:900 clamp(35px,9vw,66px)/.92 ui-monospace,SFMono-Regular,monospace;letter-spacing:-.07em;text-transform:uppercase;color:#edfffb;text-shadow:0 0 25px #00f5d426}.hero h1 span{color:var(--cyan);text-shadow:0 0 22px #00f5d470}.hero p{max-width:720px;margin:0;color:#76908e;font:12px/1.7 ui-monospace,monospace}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.chip{border:1px solid #153538;background:#061011;color:#6fa09a;border-radius:3px;padding:7px 9px;font:700 9px ui-monospace,monospace;letter-spacing:.06em}.chip b{color:var(--cyan)}
+.card{background:linear-gradient(145deg,#080d0eee,#050809ee);border:1px solid #153437;border-radius:7px;padding:16px;margin:13px 0;box-shadow:0 18px 60px #000,0 0 35px #00f5d406;position:relative;overflow:hidden;animation:rise .65s ease both}.card:before{content:"";position:absolute;top:0;left:0;width:55px;height:1px;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.title{font:900 15px ui-monospace,monospace;letter-spacing:.03em}.title:before{content:"[ ";color:#345f5a}.title:after{content:" ]";color:#345f5a}.sub{font:9px ui-monospace,monospace;color:#4e6866;margin-top:5px}.badge{font:800 8px ui-monospace,monospace;letter-spacing:.1em;color:var(--cyan);border:1px solid #145158;background:#031416;padding:6px 8px;border-radius:3px;box-shadow:inset 0 0 15px #00f5d408}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field label{display:block;color:#5f7976;font:800 9px ui-monospace,monospace;letter-spacing:.1em;margin:0 0 6px}.input-wrap{position:relative}.field input{width:100%;height:50px;border:1px solid #173638;border-radius:4px;background:#020607;color:#dffff8;padding:0 13px;font:14px ui-monospace,monospace;outline:none;transition:.2s}.field input::placeholder{color:#38514f}.field input:focus{border-color:var(--cyan);box-shadow:0 0 0 2px #00f5d40d,0 0 24px #00f5d40d}.key-toggle{position:absolute;right:5px;top:5px;height:40px;padding:0 9px;border:1px solid #18393b;background:#081113;color:#69a39d;border-radius:3px;font:800 9px ui-monospace,monospace;cursor:pointer}
+.actions{display:grid;grid-template-columns:1fr 105px;gap:9px;margin-top:12px}.btn{height:51px;border:1px solid #00bfa7;border-radius:4px;color:#00110e;background:linear-gradient(90deg,#00d8bd,#00f5d4 45%,#52ff9a);font:900 12px ui-monospace,monospace;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 0 22px #00f5d41a,inset 0 0 15px #ffffff12;transition:.18s}.btn:before{content:"";position:absolute;top:0;bottom:0;width:35%;left:-50%;background:linear-gradient(90deg,transparent,#fff9,transparent);transform:skewX(-20deg);animation:buttonScan 2.8s infinite}@keyframes buttonScan{to{left:125%}}.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px #00f5d435}.btn:active{transform:scale(.985)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.btn.secondary{background:#080d0e;border-color:#244143;color:#75918e;box-shadow:none}.spinner{width:15px;height:15px;border:2px solid #002b26;border-top-color:#fff;border-radius:50%;display:inline-block;vertical-align:-3px;margin-right:7px;animation:spin .65s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.progress{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:11px}.step{height:4px;background:#122123;border-radius:1px;overflow:hidden}.step i{display:block;width:0;height:100%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);transition:.35s}.step.done i{width:100%}.step.active i{width:60%;animation:pulsebar 1s infinite}@keyframes pulsebar{50%{width:90%}}.status{min-height:21px;margin-top:9px;color:#526b68;font:10px ui-monospace,monospace;display:flex;align-items:center;gap:7px}.status.ok{color:var(--green)}.status.err{color:#ff718c}.status-dot{width:6px;height:6px;border-radius:50%;background:#3a4b49}.ok .status-dot{background:var(--green);box-shadow:0 0 10px var(--green)}.err .status-dot{background:var(--red);box-shadow:0 0 10px var(--red)}
+.output{position:relative}.copy,.mini{border:1px solid #1d3b3d;background:#071011;color:#6fa09a;border-radius:3px;padding:8px 10px;font:800 9px ui-monospace,monospace;cursor:pointer}.copy:hover,.mini:hover{color:var(--cyan);border-color:#28767a}.json{margin:0;background:#020405;border:1px solid #10282a;border-radius:4px;padding:14px;min-height:170px;max-height:520px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:11px/1.7 ui-monospace,SFMono-Regular,monospace;color:#c9dfdc;counter-reset:line}.json::-webkit-scrollbar{width:7px;height:7px}.json::-webkit-scrollbar-thumb{background:#183437;border-radius:2px}.banner-box{min-height:255px;border:1px dashed #245052;background:radial-gradient(circle at center,#0b1718,#020405 70%);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden;position:relative}.banner-box:before{content:"IMAGE BUFFER // LIVE";position:absolute;left:10px;top:9px;color:#2b5653;font:700 8px ui-monospace,monospace;letter-spacing:.1em}.banner-box:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,#00f5d40d 50%,transparent 65%);transform:translateX(-120%);pointer-events:none}.banner-box.generating:after{animation:shine 1s infinite}@keyframes shine{to{transform:translateX(120%)}}.banner-box img{display:block;max-width:100%;height:auto;border:1px solid #4a7772;border-radius:3px;box-shadow:0 0 35px #00f5d41c,0 20px 55px #000;animation:bannerIn .45s ease both}@keyframes bannerIn{from{opacity:0;transform:scale(.95);filter:brightness(.4)}to{opacity:1;transform:none;filter:none}}.placeholder{text-align:center;color:#3e5956;font:10px/1.6 ui-monospace,monospace}.placeholder .icon{font-size:25px;display:block;color:#1d6762;margin-bottom:7px}.banner-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:9px}.mini:disabled{opacity:.35;cursor:not-allowed}.meta{margin-top:9px;color:#3f5956;font:9px/1.6 ui-monospace,monospace}.meta code{color:#5b8d87}.api-card{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.api-item{padding:10px;border:1px solid #153437;background:#040809;border-radius:3px}.api-item small{display:block;color:#3e5b58;font:700 8px ui-monospace,monospace;letter-spacing:.12em;margin-bottom:5px}.api-item code{font:10px ui-monospace,monospace;color:#69aaa3;word-break:break-all}.footer{text-align:center;color:#29423f;font:8px ui-monospace,monospace;letter-spacing:.12em;padding:8px}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:650px){.page{padding:10px 8px 38px}.topbar{padding:7px 2px 13px}.hero{padding:23px 14px 18px}.hero:after{display:none}.hero h1{font-size:39px}.grid,.api-card,.actions{grid-template-columns:1fr}.card{padding:13px;border-radius:5px}.banner-box{min-height:220px;padding:9px}.field input{height:52px}.btn{height:52px}}
+</style>
+</head>
+<body>
+<div class="scan"></div><div class="noise"></div>
+<main class="page">
+<header class="topbar"><div class="brand"><span class="brand-dot"></span>RAVEN // CYBER NODE</div><div class="system">SYSTEM <b>ONLINE</b> • OB55</div></header>
+<section class="hero">
+  <div class="eyebrow">PRIVATE PLAYER DATA TERMINAL</div>
+  <h1>INFO <span>//</span> BANNER</h1>
+  <p>Single lookup pipeline. Enter the UID and API key once. Raven fetches the player JSON once, then builds the banner from that exact response.</p>
+  <div class="chips"><span class="chip"><b>01</b> SINGLE LOOKUP</span><span class="chip"><b>02</b> PRETTY JSON</span><span class="chip"><b>03</b> DIRECT IMAGE</span><span class="chip"><b>04</b> NO SECOND CALL</span></div>
+</section>
+<section class="card">
+  <div class="card-head"><div><div class="title">PLAYER LOOKUP</div><div class="sub">AUTHENTICATED REQUEST CHANNEL</div></div><span class="badge">SECURE</span></div>
+  <div class="grid">
+    <div class="field"><label for="uid">FREE FIRE UID</label><input id="uid" inputmode="numeric" autocomplete="off" placeholder="ENTER UID"></div>
+    <div class="field"><label for="key">API KEY</label><div class="input-wrap"><input id="key" type="password" autocomplete="off" placeholder="ENTER API KEY"><button class="key-toggle" id="toggleKey" type="button">SHOW</button></div></div>
+  </div>
+  <div class="actions"><button class="btn" id="fetchBtn">[ EXECUTE LOOKUP ]</button><button class="btn secondary" id="clearBtn" type="button">CLEAR</button></div>
+  <div class="progress"><div class="step" id="s1"><i></i></div><div class="step" id="s2"><i></i></div><div class="step" id="s3"><i></i></div></div>
+  <div id="status" class="status"><span class="status-dot"></span><span>READY — WAITING FOR INPUT.</span></div>
+</section>
+<section class="card output">
+  <div class="card-head"><div><div class="title">JSON OUTPUT</div><div class="sub">RAVEN PLAYER RESPONSE • PRETTY PRINT</div></div><button class="copy" id="copyBtn" type="button">COPY JSON</button></div>
+  <pre id="json" class="json">NO DATA YET.</pre>
+</section>
+<section class="card">
+  <div class="card-head"><div><div class="title">BANNER OUTPUT</div><div class="sub">GENERATED FROM THE SAME JSON RESPONSE</div></div><span class="badge" id="bannerBadge">WAITING</span></div>
+  <div id="banner" class="banner-box"><div class="placeholder"><span class="icon">⌁</span>IMAGE BUFFER EMPTY<br>EXECUTE LOOKUP TO GENERATE</div></div>
+  <div class="banner-actions"><button class="mini" id="downloadBtn" disabled>DOWNLOAD PNG</button></div>
+  <div class="meta">No second UID/API-key input. No second player-info lookup. Browser calls <code>/uc-main</code> once.</div>
+</section>
+<section class="card">
+  <div class="card-head"><div><div class="title">MAIN ENDPOINT</div><div class="sub">ONE REQUEST • JSON + DIRECT IMAGE VIEW</div></div><span class="badge">LIVE</span></div>
+  <div class="api-card"><div class="api-item"><small>ENDPOINT</small><code>/uc-main</code></div><div class="api-item"><small>PARAMETERS</small><code>?uid=UID&amp;key=RAM-SAGAR</code></div><div class="api-item"><small>API MODE</small><code>?format=json</code></div></div>
+</section>
+<div class="footer">RAVEN // INFO + BANNER // CYBER NODE</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let current=null,bannerSrc=null;
+function status(text,type=''){const e=$('status');e.className='status '+type;e.innerHTML='<span class="status-dot"></span><span>'+text+'</span>'}
+function steps(n){['s1','s2','s3'].forEach((id,i)=>{$(id).className='step '+(i<n?'done':i===n?'active':'')})}
+function loading(text){status('<span class="spinner"></span>'+text)}
+function setBannerBadge(t){$('bannerBadge').textContent=t}
+$('toggleKey').onclick=()=>{const x=$('key');const show=x.type==='password';x.type=show?'text':'password';$('toggleKey').textContent=show?'HIDE':'SHOW'};
+$('fetchBtn').onclick=async()=>{
+ const uid=$('uid').value.trim(),key=$('key').value.trim();
+ if(!uid||!key){status('✕ UID AND API KEY ARE REQUIRED.','err');return}
+ $('fetchBtn').disabled=true;$('json').textContent='LOADING…';$('downloadBtn').disabled=true;$('banner').className='banner-box generating';$('banner').innerHTML='<div class="placeholder"><span class="spinner"></span>EXECUTING RAVEN NODE…</div>';current=null;bannerSrc=null;setBannerBadge('WORKING');steps(0);
+ try{
+   steps(1);loading('FETCHING PLAYER JSON + GENERATING IMAGE…');
+   const r=await fetch('/uc-main?uid='+encodeURIComponent(uid)+'&key='+encodeURIComponent(key)+'&format=json',{cache:'no-store',headers:{'Accept':'application/json'}});
+   const data=await r.json();
+   if(!r.ok)throw new Error(data.error||('REQUEST FAILED: HTTP '+r.status));
+   if(!data.info||!data.banner||!data.banner.base64)throw new Error('Incomplete /uc-main response.');
+   current=data.info;$('json').textContent=JSON.stringify(data.info,null,2);steps(2);loading('RENDERING DIRECT IMAGE FROM SAME RESPONSE…');
+   bannerSrc='data:'+(data.banner.mime_type||'image/png')+';base64,'+data.banner.base64;
+   $('banner').className='banner-box';$('banner').innerHTML='';const img=document.createElement('img');img.src=bannerSrc;img.alt='Generated Free Fire banner';$('banner').appendChild(img);$('downloadBtn').disabled=false;setBannerBadge('READY');steps(3);status('✓ LOOKUP COMPLETE — JSON + BANNER READY.','ok');
+ }catch(e){$('json').textContent='NO VALID JSON RETURNED.';$('banner').className='banner-box';$('banner').innerHTML='<div class="placeholder"><span class="icon">!</span>IMAGE GENERATION FAILED.</div>';setBannerBadge('ERROR');steps(0);status('✕ '+(e.message||'REQUEST FAILED'),'err')}
+ finally{$('fetchBtn').disabled=false}
+};
+$('copyBtn').onclick=async()=>{if(!current){status('NO JSON TO COPY.','err');return}try{await navigator.clipboard.writeText(JSON.stringify(current,null,2));status('✓ JSON COPIED.','ok')}catch(e){status('✕ COPY FAILED.','err')}};
+$('downloadBtn').onclick=()=>{if(!bannerSrc)return;const a=document.createElement('a');a.href=bannerSrc;a.download='raven-banner.png';document.body.appendChild(a);a.click();a.remove()};
+$('clearBtn').onclick=()=>{$('uid').value='';$('key').value='';$('key').type='password';$('toggleKey').textContent='SHOW';$('json').textContent='NO DATA YET.';$('banner').className='banner-box';$('banner').innerHTML='<div class="placeholder"><span class="icon">⌁</span>IMAGE BUFFER EMPTY<br>EXECUTE LOOKUP TO GENERATE</div>';$('downloadBtn').disabled=true;setBannerBadge('WAITING');steps(0);status('READY — WAITING FOR INPUT.');current=null;bannerSrc=null};
+$('uid').onkeydown=e=>{if(e.key==='Enter')$('fetchBtn').click()};$('key').onkeydown=e=>{if(e.key==='Enter')$('fetchBtn').click()};
+</script>
+</body></html>
